@@ -5,6 +5,11 @@ import TodoItem from '../TodoItem';
 
 storiesOf('TodoItem', module)
   .addDecorator(withKnobs)
+  .addDecorator(story => (
+    <div style={{ textAlign: 'center' }}>
+      {story()}
+    </div>
+  ))
   .addWithInfo('not compolete', 'An incomplete todo item', () => (
     <TodoItem text={text('Text', 'Not complete')} />
   ))
