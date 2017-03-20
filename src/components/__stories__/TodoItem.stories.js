@@ -15,7 +15,7 @@ storiesOf('TodoItem', module)
   ))
   .addWithInfo('Complete', 'A complete todo item', () => (
     <TodoItem
-      text={text('Textt', 'Complete')}
+      text={text('Text', 'Complete')}
       complete={boolean('Complete', true)}
     />
   ))
