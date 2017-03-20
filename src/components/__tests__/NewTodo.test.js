@@ -7,7 +7,8 @@ describe('NewTodo', () => {
   let props
 
   beforeEach(() => {
-    component = shallow(<NewTodo />)
+    props = { addTodo: jest.fn() }
+    component = shallow(<NewTodo {...props} />)
   })
 
   it('matches its snapshot', () => {
@@ -29,5 +30,10 @@ describe('NewTodo', () => {
       },
     })
     expect(component.state('text')).toBe('Hello')
+  })
+  it('calls props.addTodo when clicking Add button', () => {
+    component.setState({ text: 'Hello' })
+    component.find('button').simulate('click')
+    expect(props.addTodo).toHaveBeenCalledWith('Hello')
   })
 })
